@@ -1,22 +1,16 @@
 [[tutorial-define-index]]
-== Defining Your Index Patterns
+//== Defining Your Index Patterns
+== 定义你的索引模式
+加载到Elasticsearch每组数据都有一个索引模式. 在前一节中, Shakespeare 数据集具有名为`shakespeare'的索引,
+accounts 数据集具有名为`bank`的索引。一个 index pattern 是可以匹配多个索引的可选通配符的字符串。例如，在通用日志记录中使用情况下
+一个典型的索引名称包含在YYYY.MM日期。DD格式,和一个索引模式可能会看起来像“logstash - 2015.05 *”。
 
-Each set of data loaded to Elasticsearch has an index pattern. In the previous section, the
-Shakespeare data set has an index named `shakespeare`, and the accounts  data set has an index named `bank`. An _index
-pattern_ is a string with optional wildcards that can match multiple indices. For example, in the common logging use
-case, a typical index name contains the date in YYYY.MM.DD format, and an index pattern for May would look something
-like `logstash-2015.05*`.
 
-For this tutorial, any pattern that matches the name of an index we've loaded will work. Open a browser and
-navigate to `localhost:5601`. Click the *Management* tab, then the *Index Patterns* tab. Click *Add New* to define a new index
-pattern. Two of the sample data sets, the Shakespeare plays and the financial accounts, don't contain time-series data.
-Make sure the *Index contains time-based events* box is unchecked when you create index patterns for these data sets.
-Specify `shakes*`  as the index pattern for the Shakespeare data set and click *Create* to define the index pattern, then
-define a second index pattern named `ba*`.
+对于本教程, 与我们加载索引的名称匹配的任何模式都可以正常工作。打开一个浏览器,导航到 “localhost:5601”。单击 *Management* 选项卡，然后单击 *Index Patterns* 选项卡
+点击 *Add New* 去定义一个新的索引。两个样本数据集，莎士比亚的戏剧和金融账户，不包含时间序列数据。当你为这些数据集创建索引模式时，请确保  *Index contains time-based events* 框。
+指定  `shakes*` 作为这个Shakespeare 数据集的索引，然后点击 *Create* 定义索引，然后定义一个索引叫`ba*`。
 
-The Logstash data set does contain time-series data, so after clicking *Add New* to define the index for this data
-set, make sure the *Index contains time-based events* box is checked and select the `@timestamp` field from the
-*Time-field name* drop-down.
+Logstash数据集确实包含时间序列数据，所以点击* Add New * 来定义这个数据集的索引。确保*Index contains time-based events* 框被选中，并从中选择“@ timestamp”字段
+*Time-field name* 下拉列表。
 
-NOTE: When you define an index pattern, indices that match that pattern must exist in Elasticsearch. Those indices must
-contain data.
+NOTE: 定义索引模式时，匹配该模式的索引必须存在于Elasticsearch中。 那些指标必须包含数据。
