@@ -1,42 +1,21 @@
 [[tutorial-discovering]]
-== Discovering Your Data
+== 发现你的数据
 
-Click *Discover* in the side navigation to display Kibana's data discovery functions:
+单击侧面导航中的* Discover *可显示Kibana的数据发现功能：
 
 image::images/tutorial-discover.png[]
 
-In the query bar, you can enter an 
+在查询栏中，您可以输入一个
 {es-ref}query-dsl-query-string-query.html#query-string-syntax[Elasticsearch
-query] to search your data. You can explore the results in Discover and create
-visualizations of saved searches in Visualize. 
+query] 去搜索你的数据，您可以在发现和创建探索结果和保存搜索的可视化。当前索引显示在查询栏下面。指数索引确定在您提交查询时搜索哪些索引。要搜索一组不同的索引，从下拉菜单中选择不同的图案。要添加索引模式，请转到*Management/Kibana/Index Patterns*，然后单击*Add New*。
 
-The current index pattern is displayed beneath the query bar. The index pattern
-determines which indices are searched when you submit a query. To search a
-different set of indices, select different pattern from the drop down menu.
-To add an index pattern, go to *Management/Kibana/Index Patterns* and click
-*Add New*.
-
-You can construct searches by using the field names and the values you're
-interested in. With numeric fields you can use comparison operators such as
-greater than (>), less than (<), or equals (=). You can link elements with the
-logical operators AND, OR, and NOT, all in uppercase.
-
-To try it out, select the `ba*` index pattern and enter the following query string
-in the query bar:
-
-[source,text]
-account_number:<100 AND balance:>47500
-
-This query returns all account numbers between zero and 99 with balances in
-excess of 47,500. When searching the sample bank data, it returns 5 results: 
-Account numbers 8, 32, 78, 85, and 97.
+您可以把字段名称和值来当做搜索的条件，使用数字字段可以使用比较运算符，例如大于（>）小于（<）或等于（=）  
+您可以将元素与逻辑运算符AND，OR和NOT，全部以大写形式展现。要尝试，选择`ba *`索引模式并输入以下查询字符串
+在查询栏中：[source,text] account_number:<100 AND balance:>47500 此查询返回所有帐号之间的零和99之间的余额
+超过47,500。 搜索样本库数据时，返回5个结果：帐号8，32，78，85及97。
 
 image::images/tutorial-discover-2.png[]
 
-By default, all fields are shown for each matching document. To choose which
-document fields to display, hover over the Available Fields list and click the
-*add* button next to each field you want include. For example, if you add
-just the `account_number`, the display changes to a simple list of five
-account numbers:
+默认情况下，为每个匹配文档显示所有字段。悬停在可用字段列表并点击你想要显示的字段旁边的*add*按钮来添加。例如，如果你仅仅添加 `account_number` 只显示5个账号的简单列表: 
 
 image::images/tutorial-discover-3.png[]
