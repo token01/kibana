@@ -1,12 +1,7 @@
 [[tutorial-dashboard]]
 == 使用仪表盘汇总数据
-//== Putting it all Together with Dashboards
-
-//A dashboard is a collection of visualizations that you can arrange and share. 
 
 仪表板是您可以安排和分享的可视化集合。
-
-//To build a dashboard that contains the visualizations you saved during this tutorial:
 
 构建一个包含您在本教程中保存的可视化的仪表板：
 
@@ -14,16 +9,10 @@
 . 点击 *Add* 显示列表保存的可视化。
 . 单击 Markdown Example，Pie Example，Bar Example和Map Example，然后关闭 通过点击列表底部的小向上箭头可视化。
 
-//Hovering over a visualization displays the container controls that enable you to
-//edit, move, delete, and resize the visualization. 
-
 将鼠标悬停在一个可视化文件上可显示允许你使用容器控件编辑、移动、删除和调整的可视化。
 
-//Your sample dashboard should end up looking roughly like this:
 你的样本仪表盘应该最终看起来像这样:
 
 image::images/tutorial-dashboard.png[]
-//To get a link to share or HTML code to embed the dashboard in a web page, save
-//the dashboard and click  *Share*.
 
 要获取分享链接或将HTML代码嵌入到网页中，请保存仪表板并点击 *Share*。
