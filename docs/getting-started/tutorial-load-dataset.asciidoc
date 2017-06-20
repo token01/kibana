@@ -1,22 +1,22 @@
 [[tutorial-load-dataset]]
-== Loading Sample Data
+== 加载示例数据
 
-The tutorials in this section rely on the following data sets:
+本节教程依赖以下数据:
 
-* The complete works of William Shakespeare, suitably parsed into fields. Download this data set by clicking here:
+* 威廉·莎士比亚全集,解析成适当的字段。点击这里下载这个数据集:
   https://download.elastic.co/demos/kibana/gettingstarted/shakespeare_6.0.json[shakespeare.json].
-* A set of fictitious accounts with randomly generated data. Download this data set by clicking here:
+* 一组虚构的账户与随机生成的数据。点击这里下载这个数据集:
   https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip[accounts.zip]
-* A set of randomly generated log files. Download this data set by clicking here:
+* 一组随机生成的日志文件。点击这里下载这个数据集:
   https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz[logs.jsonl.gz]
 
-Two of the data sets are compressed. Use the following commands to extract the files:
+两个数据集被压缩。 使用以下命令解压缩文件：
 
 [source,shell]
 unzip accounts.zip
 gunzip logs.jsonl.gz
 
-The Shakespeare data set is organized in the following schema:
+莎士比亚数据集的组织方式如下：
 
 [source,json]
 {
@@ -28,7 +28,7 @@ The Shakespeare data set is organized in the following schema:
     "text_entry": "String",
 }
 
-The accounts data set is organized in the following schema:
+帐户数据集的组织方式如下：
 
 [source,json]
 {
@@ -45,7 +45,7 @@ The accounts data set is organized in the following schema:
     "state": "String"
 }
 
-The schema for the logs data set has dozens of different fields, but the notable ones used in this tutorial are:
+日志数据集的模式有许多不同的领域,但在本教程中使用的值得注意的是:
 
 [source,json]
 {
@@ -54,11 +54,9 @@ The schema for the logs data set has dozens of different fields, but the notable
     "@timestamp": "date"
 }
 
-Before we load the Shakespeare and logs data sets, we need to set up {es-ref}mapping.html[_mappings_] for the fields.
-Mapping divides the documents in the index into logical groups and specifies a field's characteristics, such as the
-field's searchability or whether or not it's _tokenized_, or broken up into separate words.
-
-Use the following command in a terminal (eg `bash`) to set up a mapping for the Shakespeare data set:
+莎士比亚和日志数据集加载之前,我们需要设置{ es-ref }映射。html(_mappings_)字段。
+映射索引中的文档分为逻辑组并指定一个字段的特点,如字段的可搜索性或是否为 _tokenized_,或分解成单独的单词。
+使用以下命令在一个终端(比如bash)建立一个映射的莎士比亚数据集:
 
 [source,js]
 PUT /shakespeare
@@ -77,15 +75,14 @@ PUT /shakespeare
 
 //CONSOLE
 
-This mapping specifies the following qualities for the data set:
+这个映射指定以下品质数据集:
 
-* Because the _speaker_ and _play_name_ fields are keyword fields, they are not analyzed. The strings are treated as a single unit even if they contain multiple words.
-* The _line_id_ and _speech_number_ fields are integers.
+* 因为_speaker_ _play_name_字段是关键字字段,它们不是分析。字符串被视为一个单元即使他们包含多个词。
+* _line_id_和_speech_number_字段是整数。
 
-The logs data set requires a mapping to label the latitude/longitude pairs in the logs as geographic locations by
-applying the `geo_point` type to those fields.
+日志数据集需要映射标签的纬度/经度对日志的地理位置应用“geo_point”类型的字段。
 
-Use the following commands to establish `geo_point` mapping for the logs:
+使用下面的命令来建立“geo_point”映射的日志:
 
 [source,js]
 PUT /logstash-2015.05.18
@@ -147,25 +144,21 @@ PUT /logstash-2015.05.20
 
 //CONSOLE
 
-The accounts data set doesn't require any mappings, so at this point we're ready to use the Elasticsearch
-{es-ref}docs-bulk.html[`bulk`] API to load the data sets with the following commands:
+账户数据集不需要任何映射,所以在这一点上我们准备使用Elasticsearch{ es-ref } docs-bulk。html(“bulk”)API来加载数据集使用以下命令:
 
 [source,shell]
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/doc/_bulk?pretty' --data-binary @shakespeare_6.0.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @logs.jsonl
 
-These commands may take some time to execute, depending on the computing resources available.
-
-Verify successful loading with the following command:
+执行这些命令可能需要一段时间,这取决于可用的计算资源。
+验证成功的加载使用下面的命令:
 
 [source,js]
 GET /_cat/indices?v
 
 //CONSOLE
-
-You should see output similar to the following:
-
+你应该会看到类似于下面的输出:
 [source,shell]
 health status index               pri rep docs.count docs.deleted store.size pri.store.size
 yellow open   bank                  5   1       1000            0    418.2kb        418.2kb
