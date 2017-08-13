@@ -1,29 +1,25 @@
 [[tutorial-visualizing]]
-== Visualizing Your Data
+== 可视化数据
 
-To start visualizing your data, click *Visualize* in the side navigation.
+开始可视化数据,在侧边导航栏点击 *Visualize* 。
 
-The *Visualize* tools enable you to view your data in several ways. For example,
-let's use that venerable visualization, the pie chart, to get some insight
-into the account balances in the sample bank account data. To get started, click the big blue
-**Create a visualization** button in the center of the screen.
+这个 *Visualize* 可视化工具能够查看您的数据在几个方面。例如,
+ 我们使用的可视化,饼图,可以在样本银行账户的账户余额数据中得到一些启示。
+开始,在屏幕中央，点击蓝色 *create visualization* 按钮。
 
 image::images/tutorial-visualize-landing.png[]
 
-There are a number of visualization types to choose from. Let's click the one
-called *Pie*.
+这里有多种可视化类型可供选择。 我们点击一个叫 *pie*。
 
 image::images/tutorial-visualize-wizard-step-1.png[]
 
-You can build visualizations from saved searches, or enter new search criteria. To enter
-new search criteria, you first need to select an index pattern to specify
-what indices to search. We want to search the account data, so select the `ba*`
-index pattern.
+您可以通过保存的搜索构建可视化，或输入新的搜索条件。要输入新的搜索条件，您首先需要选择要指定的索引模式
+什么索引要搜索。我们想搜索帐户数据,所以选择“ba *”索引模式。
+
 
 image::images/tutorial-visualize-wizard-step-2.png[]
 
-The default search matches all documents. Initially, a single "slice"
-encompasses the entire pie:
+默认搜索符合所有文档。最初,一个 “slice” 包括了整个饼:
 
 image::images/tutorial-visualize-pie-1.png[]
 
