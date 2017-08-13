@@ -3,14 +3,14 @@
 
 本节教程依赖以下数据:
 
-* 威廉·莎士比亚全集,解析成适当的字段。点击这里下载这个数据集:
+* 威廉·莎士比亚全集，解析成适当的字段。点击这里下载这个数据集：
   https://download.elastic.co/demos/kibana/gettingstarted/shakespeare_6.0.json[shakespeare.json].
-* 一组虚构的账户与随机生成的数据。点击这里下载这个数据集:
+* 一组虚构的账户与随机生成的数据。点击这里下载这个数据集：
   https://download.elastic.co/demos/kibana/gettingstarted/accounts.zip[accounts.zip]
-* 一组随机生成的日志文件。点击这里下载这个数据集:
+* 一组随机生成的日志文件。点击这里下载这个数据集：
   https://download.elastic.co/demos/kibana/gettingstarted/logs.jsonl.gz[logs.jsonl.gz]
 
-两个数据集被压缩。 使用以下命令解压缩文件：
+两个数据集被压缩。使用以下命令解压缩文件：
 
 [source,shell]
 unzip accounts.zip
@@ -45,7 +45,7 @@ gunzip logs.jsonl.gz
     "state": "String"
 }
 
-日志数据集的模式有许多不同的领域,但在本教程中使用的值得注意的是:
+日志数据集的模式有许多不同的字段，但在本教程中使用的值得注意的是：
 
 [source,json]
 {
@@ -54,9 +54,9 @@ gunzip logs.jsonl.gz
     "@timestamp": "date"
 }
 
-莎士比亚和日志数据集加载之前,我们需要设置{ es-ref }映射。html(_mappings_)字段。
-映射索引中的文档分为逻辑组并指定一个字段的特点,如字段的可搜索性或是否为 _tokenized_,或分解成单独的单词。
-使用以下命令在一个终端(比如bash)建立一个映射的莎士比亚数据集:
+莎士比亚和日志数据集加载之前，我们需要为字段设置 {es-ref}mapping.html[_mappings_]。
+映射把索引中的文档按逻辑分组并指定了字段的属性，比如字段的可搜索性或者该字段是否_tokenized_，或分解成单独的单词。
+使用以下命令在一个终端（如“bash”）建立一个莎士比亚数据集的映射：
 
 [source,js]
 PUT /shakespeare
@@ -75,14 +75,14 @@ PUT /shakespeare
 
 //CONSOLE
 
-这个映射指定以下品质数据集:
+这个映射指定了数据集的以下特点：
 
-* 因为_speaker_ _play_name_字段是关键字字段,它们不是分析。字符串被视为一个单元即使他们包含多个词。
-* _line_id_和_speech_number_字段是整数。
+* 因为 _speaker_ 和 _play_name_ 字段是关键字字段，它们不是分析。字符串即使包含多个词也仍被视为一个整体。
+* _line_id_ 和 _speech_number_ 字段是整数。
 
-日志数据集需要映射标签的纬度/经度对日志的地理位置应用“geo_point”类型的字段。
+日志数据集需要一个映射，在这些字段上应用"geo_point"类型来标记纬度/经度对作为日志的地理标识。
 
-使用下面的命令来建立“geo_point”映射的日志:
+使用下面的命令来为日志建立"geo_point"映射：
 
 [source,js]
 PUT /logstash-2015.05.18
@@ -144,21 +144,21 @@ PUT /logstash-2015.05.20
 
 //CONSOLE
 
-账户数据集不需要任何映射,所以在这一点上我们准备使用Elasticsearch{ es-ref } docs-bulk。html(“bulk”)API来加载数据集使用以下命令:
+账户数据集不需要任何映射，基于这一点我们准备用 Elasticsearch {es-ref}docs-bulk.html('bulk') API 来加载数据集，命令如下：
 
 [source,shell]
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/shakespeare/doc/_bulk?pretty' --data-binary @shakespeare_6.0.json
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @logs.jsonl
 
-执行这些命令可能需要一段时间,这取决于可用的计算资源。
-验证成功的加载使用下面的命令:
+执行这些命令可能需要一段时间，这取决于可用的计算资源。
+使用下面的命令来验证加载成功：
 
 [source,js]
 GET /_cat/indices?v
 
 //CONSOLE
-你应该会看到类似于下面的输出:
+你应该会看到类似于下面的输出：
 [source,shell]
 health status index               pri rep docs.count docs.deleted store.size pri.store.size
 yellow open   bank                  5   1       1000            0    418.2kb        418.2kb
