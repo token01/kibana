@@ -61,8 +61,8 @@ gunzip logs.jsonl.gz
 }
 
 莎士比亚和日志数据集加载之前，我们需要为字段设置 {es-ref}mapping.html[_mappings_]。
-映射把索引中的文档按逻辑分组并指定了字段的属性，比如字段的可搜索性或者该字段是否 tokenized，或分解成单独的单词。
-使用以下命令在一个终端（如 bash ）建立一个莎士比亚数据集的映射：
+映射把索引中的文档按逻辑分组并指定了字段的属性，比如字段的可搜索性或者该字段是否 _tokenized_，或分解成单独的单词。
+使用以下命令在一个终端（如 `bash` ）建立一个莎士比亚数据集的映射：
 
 [source,js]
 PUT /shakespeare
@@ -86,9 +86,9 @@ PUT /shakespeare
 * 因为 _speaker_ 和 _play_name_ 字段是关键字字段，它们不需要分析。字符串即使包含多个词也仍被视为一个整体。
 * _line_id_ 和 _speech_number_ 字段是整数。
 
-日志数据集需要一个映射，在这些字段上应用 geo_point 类型来标记纬度/经度对作为日志的地理标识。
+日志数据集需要一个映射，在这些字段上应用 `geo_point` 类型来标记纬度/经度对作为日志的地理标识。
 
-使用下面的命令来为日志建立 geo_point 映射：
+使用下面的命令来为日志建立 `geo_point` 映射：
 
 [source,js]
 PUT /logstash-2015.05.18
@@ -150,7 +150,7 @@ PUT /logstash-2015.05.20
 
 //CONSOLE
 
-账户数据集不需要任何映射，基于这一点我们准备用 Elasticsearch {es-ref}docs-bulk.html[bulk] API 来加载数据集，命令如下：
+账户数据集不需要任何映射，基于这一点我们准备用 Elasticsearch {es-ref}docs-bulk.html[`bulk`] API 来加载数据集，命令如下：
 
 [source,shell]
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/bank/account/_bulk?pretty' --data-binary @accounts.json
