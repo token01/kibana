@@ -1,21 +1,26 @@
 [[tutorial-discovering]]
-== 发现你的数据
+== 探索你的数据
 
-单击侧面导航中的* Discover *可显示Kibana的数据发现功能：
+单击侧面导航中的 *Discover* 可显示 Kibana 的数据探索功能：
 
 image::images/tutorial-discover.png[]
 
-在查询栏中，您可以输入一个
-{es-ref}query-dsl-query-string-query.html#query-string-syntax[Elasticsearch
-query] 去搜索你的数据，您可以在发现和创建探索结果和保存搜索的可视化。当前索引显示在查询栏下面。指数索引确定在您提交查询时搜索哪些索引。要搜索一组不同的索引，从下拉菜单中选择不同的图案。要添加索引模式，请转到*Management/Kibana/Index Patterns*，然后单击*Add New*。
+在查询栏中，您可以输入一个 {es-ref}query-dsl-query-string-query.html#query-string-syntax[Elasticsearch
+query] 去搜索您的数据。您可以在 Discover 界面下查看结果并且在 Visualize 界面下生成已保存的搜索的可视化效果。
 
-您可以把字段名称和值来当做搜索的条件，使用数字字段可以使用比较运算符，例如大于（>）小于（<）或等于（=）  
-您可以将元素与逻辑运算符AND，OR和NOT，全部以大写形式展现。要尝试，选择`ba *`索引模式并输入以下查询字符串
-在查询栏中：[source,text] account_number:<100 AND balance:>47500 此查询返回所有帐号之间的零和99之间的余额
-超过47,500。 搜索样本库数据时，返回5个结果：帐号8，32，78，85及97。
+当前索引模式显示在查询栏下面。索引模式决定了当您提交查询时搜索哪些索引。要搜索一组不同的索引，可以从下拉菜单中选择不同的模式。要添加索引模式，请到 *Management/Kibana/Index Patterns* 界面下点击 *Add New*。
+
+您可以把您感兴趣的字段名称和值当做搜索的条件，对于数字字段您可以使用比较运算符，例如大于（>）、小于（<）或等于（=）。  
+您可以使用逻辑运算符AND，OR和NOT连接搜索条件，这些运算符需要全部大写。
+
+尝试选择 `ba*` 索引模式并在查询栏中输入以下字符串：
+
+``[source,text] account_number:<100 AND balance:>47500 ``
+
+此查询返回0到99之间所有余额超过47,500的账户号码。搜索样本银行数据时，它返回5个结果：帐户号码8，32，78，85和97。
 
 image::images/tutorial-discover-2.png[]
 
-默认情况下，为每个匹配文档显示所有字段。悬停在可用字段列表并点击你想要显示的字段旁边的*add*按钮来添加。例如，如果你仅仅添加 `account_number` 只显示5个账号的简单列表: 
+每个匹配文档默认显示所有字段。可以通过悬停在可用字段列表并点击您想要显示的字段旁边的 *add* 按钮来添加需要展示的字段。例如，如果你仅仅添加 `account_number` ，显示就会变为5个账户号码的简单列表： 
 
 image::images/tutorial-discover-3.png[]
