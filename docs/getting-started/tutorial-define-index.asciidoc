@@ -2,13 +2,13 @@
 
 == 定义你的索引模式
 
-加载到 Elasticsearch 的每个数据集都有一个索引模式。在前一节中，Shakespeare 数据集具有名为 `shakespeare` 的索引， accounts 数据集具有名为 `bank` 的索引。一个 _index pattern_ 是一个带有可选通配符用以匹配多个索引的字符串。例如，在普通的日志记录场景下，
+加载到 Elasticsearch 的每个数据集都有一个索引模式。在前一节中，莎士比亚数据集具有名为 `shakespeare` 的索引， 账户数据集具有名为 `bank` 的索引。一个 _index pattern_ 是一个带有可选通配符用以匹配多个索引的字符串。例如，在普通的日志记录场景下，
 一个典型的索引名称包含格式为 YYYY.MM.DD 的日期,一个针对五月的索引模式可能看起来像 `logstash-2015.05*`。
 
 对于本教程, 与我们加载的索引名称匹配的任何模式都可以正常工作。打开一个浏览器，导航到 `localhost:5601`。单击 *Management* 选项卡，然后单击 *Index Patterns* 选项卡。
 点击 *Add New* 去定义一个新的索引模式。两个样本数据集，莎士比亚戏剧和金融账户，不包含时间序列数据。当你为这些数据集创建索引模式时，请确保 *Index contains time-based events* 框未被选中。
-指定 `shakes*` 作为 Shakespeare 数据集的索引模式，点击 *Create* 定义这个索引模式，然后定义第二个索引模式叫 `ba*`。
+指定 `shakes*` 作为莎士比亚数据集的索引模式，点击 *Create* 定义这个索引模式，然后定义第二个索引模式叫 `ba*`。
 
 Logstash 数据集确实包含时间序列数据，所以点击 *Add New* 来定义这个数据集的索引时，确保已勾选 *Index contains time-based events* 框，并从 *Time-field name* 下拉列表选择 `@timestamp` 字段。
 
-NOTE: 定义索引模式时，匹配该模式的索引必须存在于 Elasticsearch 中，并且必须包含数据。
+NOTE: When you define an index pattern, indices that match that pattern must exist in Elasticsearch. Those indices must contain data.
