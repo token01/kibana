@@ -91,6 +91,7 @@ image::images/tutorial-visualize-bar-3.png[]
 
 保存这个图表命名为 _Bar Example_ 。
 
+
 下一步，我们使用地图来可视化日志样本数据集中的地理标识信息。
 
 . 点击 *New* 。
@@ -100,7 +101,7 @@ image::images/tutorial-visualize-bar-3.png[]
 . 在 Kibana 工具栏中点击时间选择。
 . 点击 *Absolute* 。
 . 设置开始时间为 May 18, 2015，结束时间为 May 20, 2015。
-+
+
 image::images/tutorial-timepicker.png[]
 
 . 让您设置好时间范围后，点击 *Go* 按键并且点击右下角向上的小箭头关闭时间选择工具。
