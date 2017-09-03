@@ -15,7 +15,7 @@ image::images/tutorial-visualize-wizard-step-1.png[]
 
 image::images/tutorial-visualize-wizard-step-2.png[]
 
-默认搜索匹配所有的文档。最开始的时候，一小片可以包含整个馅饼：
+默认搜索匹配所有的文档。初始化的饼图没有分区：
 
 image::images/tutorial-visualize-pie-1.png[]
 
@@ -66,19 +66,19 @@ image::images/tutorial-visualize-bar-1.png[]
 
 . 为了在y轴上显示每部剧里面的台词数，您需要通过 {es-ref}search-aggregations.html[metric aggregation] 配置y轴。指标聚合以搜索结果中提取出来的值为基础计算出相应的指标。为了得到每部剧中的台词数，选择 *Unique Count* 聚合然后从字段列表中选择 *speaker* 。您也可以给这个轴加上标签， _Speaking Parts_ 。
 
-. 为了在x轴上显示不同的剧目，选择 X-Axis 桶种类，然后在聚合列表中选择 *Terms* ，从字段列表中选择 *play_name* 。选择 *Ascending* 使得剧目名称按照字母顺序排列。您也可以给这个轴加上标签， _Play Name_ 。
+. 为了在x轴上显示不同的剧目，选择X轴桶种类，然后在聚合列表中选择 *Terms* ，并且从字段列表中选择 *play_name* 。选择 *Ascending* 使得剧目名称按照字母顺序排列。您也可以给这个轴加上标签， _Play Name_ 。
 
 . 点击 *Apply changes* image:images/apply-changes-button.png[] 来显示结果。
 
 image::images/tutorial-visualize-bar-2.png[]
 
-注意到每部剧名显示为一整个短语，而不是以单词的形式分开。这是因为我们在教程开始的时候做了映射的缘故，把 *play_name* 字段标记为 'not analyzed'。
+注意每部剧名显示为一整个短语，而不是以单词的形式分开。这是因为我们在教程开始的时候做了映射的缘故，把 *play_name* 字段标记为 'not analyzed'。
 
-悬停在每个柱形上可以以提示信息的形式显示每部剧中的台词数。为了关闭提示信息并且为可视化效果配置其他选项，选择可视化编辑器的 *Options* 选项卡。
+鼠标悬停在每个柱形上可以以提示信息的形式显示每部剧中的台词数。为了关闭提示信息并且为可视化效果配置其他选项，选择可视化编辑器的 *Options* 选项卡。
 
 现在，您已经拥有一个莎士比亚戏剧的最小的演员表，您也许会想通过显示某部剧里面的最大台词数来了解哪部剧对一个演员要求最高。
 
-. 点击 *Add metrics* 来添加一个y轴聚合。
+. 点击 *Add metrics* 来添加一个Y轴聚合。
 . 选择 *Max* 聚合然后选择 *speech_number* 字段。
 . 选择 *Options* 然后把 *Bar Mode* 改为 *grouped* 。
 . 点击 *Apply changes* image:images/apply-changes-button.png[] 。您的图表应该如下所示：
@@ -87,7 +87,7 @@ image::images/tutorial-visualize-bar-3.png[]
 
 如您所见，与其他剧目相比 _Love's Labours Lost_ 有着最高的台词数，因此也最考验演员的记忆力。
 
-请注意 *Number of speaking parts* Y轴从0开始，但是柱形从18开始才开始有差别。为了让这种差别更显著，打开选项然后选择 *Scale Y-Axis to data bounds* 。
+请注意 *Number of speaking parts* Y轴从0开始，但是柱形从18才开始有差别。为了让这种差别更显著，打开选项然后选择 *Scale Y-Axis to data bounds* 。
 
 保存这个图表命名为 _Bar Example_ 。
 
@@ -114,7 +114,7 @@ image::images/tutorial-visualize-map-1.png[]
 
 image::images/tutorial-visualize-map-2.png[]
 
-您可以通过点击和拖动来浏览地图，通过 image:images[表情]iz-zoom.png[] 按钮放大缩小，或者点击 *Fit Data Bounds* image:images[表情]iz-fit-bounds.png[] 缩放到最低水平来显示所有部位。您也可以通过点击 *Latitude/Longitude Filter* image:images[表情]iz-lat-long-filter.png[] 并在地图上画框来包含或去除某个矩形区域。应用的过滤器显示在查询栏下方。悬停在过滤器上方可以显示切换、固定、反转和删除该过滤器的控制选项。
+您可以通过点击和拖动来浏览地图，通过 image:images/viz-zoom.png[] 按钮放大缩小，或者点击 *Fit Data Bounds* image:images/viz-fit-bounds.png[] 缩放到最低水平来显示所有部位。您也可以通过点击 *Latitude/Longitude Filter* image:images/viz-lat-long-filter.png[] 并在地图上画框来包含或去除某个矩形区域。应用的过滤器显示在查询栏下方。悬停在过滤器上方可以显示切换、固定、反转和删除该过滤器的控制选项。
 
 image::images/tutorial-visualize-map-3.png[]
 
@@ -127,9 +127,9 @@ image::images/tutorial-visualize-map-3.png[]
 . 在输入框中输入如下内容：
 +
 [source,markdown]
-# This is a tutorial dashboard!
-The Markdown widget uses **markdown** syntax.
-> Blockquotes in Markdown use the > character.
+# 这是一个作为教程的仪表盘！
+Markdown 插件使用 **markdown** 语法。
+> Markdown 中的 Blockquotes 使用 > 符号。
 
 . 点击 *Apply changes* image:images/apply-changes-button.png[] 在预览框中显示该 Markdown 。
 +
