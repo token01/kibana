@@ -1,5 +1,4 @@
 [[tutorial-define-index]]
-//== Defining Your Index Patterns
 == 定义你的索引模式
 加载到Elasticsearch每组数据都有一个索引模式. 在前一节中, Shakespeare 数据集具有名为`shakespeare'的索引,
 accounts 数据集具有名为`bank`的索引。一个 index pattern 是可以匹配多个索引的可选通配符的字符串。例如，在通用日志记录中使用情况下
