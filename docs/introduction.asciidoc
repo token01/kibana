@@ -1,12 +1,8 @@
 [[introduction]]
-== Introduction
+== 介绍
 
-Kibana is an open source analytics and visualization platform designed to work with Elasticsearch. You use Kibana to
-search, view, and interact with data stored in Elasticsearch indices. You can easily perform advanced data analysis
-and visualize your data in a variety of charts, tables, and maps.
+Kibana是一款结合Elasticsearch开放源码的分析和可视化平台. 您使用Kibana搜索, 视图, 数据存储在elasticsearch中.您可以轻松地执行先进的数据分析可视化数据以各种图表,表格,和地图.
 
-Kibana makes it easy to understand large volumes of data. Its simple, browser-based interface enables you to quickly
-create and share dynamic dashboards that display changes to Elasticsearch queries in real time.
+使用Kibana会容易理解大量数据. 它很简单,它是基于浏览器的界面允许您快速创建和共享动态指示板显示更改Elasticsearch实时查询.
 
-Setting up Kibana is a snap. You can install Kibana and start exploring your Elasticsearch indices in minutes -- no
-code, no additional infrastructure required.
+设置Kibana是一件简单的事. 你可以安装Kibana并开始探索Elasticsearch指数在几分钟内 -- 没有代码, 不需要额外的基础设施.
